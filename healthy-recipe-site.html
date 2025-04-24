@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriRecipes - Healthy Cooking Made Simple</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .hero.is-primary {
+      background: linear-gradient(to right, #00d1b2, #00b89c);
+    }
+    .recipe-card {
+      transition: transform 0.3s;
+      height: 100%;
+    }
+    .recipe-card:hover {
+      transform: translateY(-5px);
+    }
+    .tabs-content {
+      display: none;
+    }
+    .tabs-content.is-active {
+      display: block;
+    }
+    .rating {
+      color: #FFD700;
+    }
+    .hero-body {
+      padding: 3rem 1.5rem;
+    }
+    .section {
+      padding: 3rem 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header/Hero Section -->
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-1">
+          NutriRecipes
+        </h1>
+        <h2 class="subtitle">
+          Healthy cooking made simple and delicious
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter & Search Section -->
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8">
+          <div class="tabs is-medium" id="recipe-tabs">
+            <ul>
+              <li class="is-active"><a data-tab="all">All Recipes</a></li>
+              <li><a data-tab="vegan">Vegan</a></li>
+              <li><a data-tab="protein">Protein-Rich</a></li>
+              <li><a data-tab="lowcarb">Low Carb</a></li>
+              <li><a data-tab="glutenfree">Gluten-Free</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input class="input" type="text" placeholder="Search recipes...">
+            </div>
+            <div class="control">
+              <button class="button is-primary">
+                <span class="icon">
+                  <i class="fas fa-search"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipes Section -->
+  <section class="section">
+    <div class="container">
+      <!-- All Recipes Tab -->
+      <div class="tabs-content is-active" id="all">
+        <div class="columns is-multiline">
+          <!-- Recipe 1 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/Quinoa-Bowl.jpg" alt="Quinoa Bowl">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-success is-light">Protein-Rich</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Rainbow Quinoa Buddha Bowl</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star-half-alt"></i></span>
+                  <span class="has-text-grey-light">(28)</span>
+                </div>
+                <div class="content">
+                  <p>A nutrient-packed bowl full of colorful vegetables and protein-rich quinoa.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>25 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>320 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item" onclick="showRecipeModal('recipe1')">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Recipe 2 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/Simple-Lemon-Herb-Salmon.jpg" alt="Salmon">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-danger is-light">Protein-Rich</span>
+                  <span class="tag is-warning is-light">Low Carb</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Lemon Herb Baked Salmon</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="has-text-grey-light">(42)</span>
+                </div>
+                <div class="content">
+                  <p>Omega-3 rich salmon fillet baked with fresh herbs and lemon.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>20 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>280 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item" onclick="showRecipeModal('recipe2')">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Recipe 3 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/Tropical-Acai-Bowl.jpg" alt="Smoothie Bowl">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Tropical Smoothie Bowl</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="far fa-star"></i></span>
+                  <span class="has-text-grey-light">(17)</span>
+                </div>
+                <div class="content">
+                  <p>Refreshing blend of mango, kiwi, pineapple, banana and coconut milk topped with muesli.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>10 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>290 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item" onclick="showRecipeModal('recipe3')">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Recipe 4 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/roasted-cauliflower-steaks.jpg" alt="Cauliflower Steak">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-warning is-light">Low Carb</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Roasted Cauliflower Steak</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="far fa-star"></i></span>
+                  <span class="has-text-grey-light">(12)</span>
+                </div>
+                <div class="content">
+                  <p>Thick-cut cauliflower steaks roasted to perfection with herbs and spices.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>35 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>180 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Medium</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Recipe 5 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/Greek_Yogurt_Marinated_Chicken.jpg" alt="Greek Yogurt Chicken">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-danger is-light">Protein-Rich</span>
+                  <span class="tag is-warning is-light">Low Carb</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Greek Yogurt Marinated Chicken</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star-half-alt"></i></span>
+                  <span class="has-text-grey-light">(33)</span>
+                </div>
+                <div class="content">
+                  <p>Tender chicken marinated in protein-packed Greek yogurt with Mediterranean herbs.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>40 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>305 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Medium</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Recipe 6 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/img/Hearty_Lentil_Soup.jpg" alt="Lentil Soup">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-success is-light">Protein-Rich</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Hearty Lentil Soup</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="has-text-grey-light">(49)</span>
+                </div>
+                <div class="content">
+                  <p>Nutrient-dense lentil soup with vegetables and aromatic spices.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>45 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>240 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vegan Tab Content -->
+      <div class="tabs-content" id="vegan">
+        <div class="columns is-multiline">
+          <!-- Vegan Recipe 1 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/api/placeholder/600/450" alt="Quinoa Bowl">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-success is-light">Protein-Rich</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Rainbow Quinoa Buddha Bowl</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star-half-alt"></i></span>
+                  <span class="has-text-grey-light">(28)</span>
+                </div>
+                <div class="content">
+                  <p>A nutrient-packed bowl full of colorful vegetables and protein-rich quinoa.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>25 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>320 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item" onclick="showRecipeModal('recipe1')">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Vegan Recipe 2 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/api/placeholder/600/450" alt="Smoothie Bowl">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Tropical Smoothie Bowl</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="far fa-star"></i></span>
+                  <span class="has-text-grey-light">(17)</span>
+                </div>
+                <div class="content">
+                  <p>Refreshing blend of mango, pineapple, banana and coconut milk topped with seeds.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>10 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>290 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item" onclick="showRecipeModal('recipe3')">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Vegan Recipe 3 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/api/placeholder/600/450" alt="Cauliflower Steak">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-warning is-light">Low Carb</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Roasted Cauliflower Steak</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="far fa-star"></i></span>
+                  <span class="has-text-grey-light">(12)</span>
+                </div>
+                <div class="content">
+                  <p>Thick-cut cauliflower steaks roasted to perfection with herbs and spices.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>35 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>180 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Medium</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Vegan Recipe 4 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/api/placeholder/600/450" alt="Lentil Soup">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-success is-light">Protein-Rich</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Hearty Lentil Soup</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="has-text-grey-light">(49)</span>
+                </div>
+                <div class="content">
+                  <p>Nutrient-dense lentil soup with vegetables and aromatic spices.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>45 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>240 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">View Recipe</a>
+                <a href="#" class="card-footer-item">Save</a>
+              </footer>
+            </div>
+          </div>
+
+          <!-- Vegan Recipe 5 -->
+          <div class="column is-4">
+            <div class="card recipe-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="/api/placeholder/600/450" alt="Chickpea Curry">
+                </figure>
+                <div class="card-content is-overlay is-clipped">
+                  <span class="tag is-primary is-light">Vegan</span>
+                  <span class="tag is-success is-light">Protein-Rich</span>
+                  <span class="tag is-info is-light">Gluten-Free</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Coconut Chickpea Curry</p>
+                <div class="rating">
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star"></i></span>
+                  <span class="icon"><i class="fas fa-star-half-alt"></i></span>
+                  <span class="has-text-grey-light">(37)</span>
+                </div>
+                <div class="content">
+                  <p>Creamy coconut curry with protein-packed chickpeas and vegetables.</p>
+                  <div class="columns is-mobile">
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-clock"></i></span>
+                        <span>30 min</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-fire"></i></span>
+                        <span>310 cal</span>
+                      </span>
+                    </div>
+                    <div class="column">
+                      <span class="icon-text">
+                        <span class="icon"><i class="fas fa-utensils"></i></span>
+                        <span>Easy
